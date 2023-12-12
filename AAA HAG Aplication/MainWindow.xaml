@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AAA_HAG_Aplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="350
-        ">
+        Title="MainWindow" Height="800" Width="350">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -28,7 +27,11 @@
         <Rectangle Height="213" VerticalAlignment="Top" Fill="#FF52A3FF" Margin="0,201,0,0" Grid.Row="1"/>
         <Rectangle Height="226" VerticalAlignment="Top" Fill="#FF192B3E" Margin="0,414,0,0" Stroke="#FF0B0D33" Grid.Row="1"/>
         <Rectangle Height="115" VerticalAlignment="Top" Fill="#FF52A3FF" Margin="0,640,0,0" Grid.Row="1"/>
-        <Image HorizontalAlignment="Left" Height="30" Margin="315,2,0,0" VerticalAlignment="Top" Width="25" Source="/person-icon-png-transparent-13.jpg" Grid.RowSpan="2"/>
+        <Button x:Name="btnProfile" Content="" HorizontalAlignment="Left" Margin="300,5,0,0" Width="25" BorderBrush="{x:Null}" Click="btnProfile_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/person-icon-png-transparent-13.jpg"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </Window>

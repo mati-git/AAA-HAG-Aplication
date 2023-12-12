@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace AAA_HAG_Aplication
 {
@@ -22,6 +23,25 @@ namespace AAA_HAG_Aplication
         public LogInPage()
         {
             InitializeComponent();
+        }
+
+        private void btnLogIn_Click(object sender, RoutedEventArgs e)
+        {
+            Session.conn.Open();
+            string LogInSQL = "SELECT Email FROM Accounts WHERE Email = @Email AND Password = SHA(@Password)";
+            MySqlCommand cmd = new MySqlCommand(LogInSQL, Session.conn);
+            cmd.Parameters.AddWithValue("@Email", txtbEmail.Text);    //These parameters prevent SQL injections
+            cmd.Parameters.AddWithValue("@Password", pswPassword.Password);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+
+            if (rdr.Read())
+            {
+                AccountEmail.address = rdr.GetString(0);
+                MessageBox.Show("Log In Successful.");
+                txtbEmail.Text = "";
+                pswPassword.Password = "";
+            }
+
         }
     }
 }

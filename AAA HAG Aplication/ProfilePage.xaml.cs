@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,21 @@ namespace AAA_HAG_Aplication
         public ProfilePage()
         {
             InitializeComponent();
+            DefineAccountInfo();
+        }
+        private void DefineAccountInfo()
+        {
+            string AccountInfoSQL = $"SELECT Firstname, Lastname, Email FROM Accounts WHERE Email = {AccountEmail.address}";
+            MySqlCommand cmd = new MySqlCommand(AccountInfoSQL, Session.conn);
+            MySqlDataReader rdr = cmd.ExecuteReader();
+            
+            txtb
+        }
+        private void btnLogInPage_Click(object sender, RoutedEventArgs e)
+        {
+            LogInPage logInPage = new LogInPage();
+            logInPage.Show();
+            Close();
         }
     }
 }

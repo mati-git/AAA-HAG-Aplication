@@ -13,6 +13,9 @@
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="20,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Background="#FFC4F1EA"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,115,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="222"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="20,135,0,0" TextWrapping="Wrap" Background="#FFC4F1EA" VerticalAlignment="Top" Width="222"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222"><Run Language="en-gb" Text="Conditions: "/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="121" Margin="20,204,0,0" TextWrapping="Wrap" Background="#FFC4F1EA" VerticalAlignment="Top" Width="222"/>
+        <Button x:Name="btnLogInPage" Content="Log In" HorizontalAlignment="Left" Height="28" Margin="271,10,0,0" VerticalAlignment="Top" Width="65" Background="#FF9AE6FF" BorderBrush="#FF9DD3EF" Click="btnLogInPage_Click"/>
 
     </Grid>
 </Window>

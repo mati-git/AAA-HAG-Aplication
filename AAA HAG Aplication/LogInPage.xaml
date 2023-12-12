@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="LogInPage" Height="800" Width="350">
     <Grid>
-        
+        <Rectangle Height="784" VerticalAlignment="Center" Fill="#FF192B3E" Stroke="#FF0B0D33"/>
+        <Rectangle Height="377" VerticalAlignment="Top" Fill="#FFD9E7F7" Margin="0,43,0,0"/>
+        <Rectangle Height="377" VerticalAlignment="Top" Fill="#FFD9E7F7" Margin="0,43,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="23,68,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="222"/>
+        <TextBlock x:Name="txtbEmail" HorizontalAlignment="Left" Height="20" Margin="33,88,0,0" TextWrapping="Wrap" Background="#FFC4F1EA" VerticalAlignment="Top" Width="222"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="23,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Text="Password:"/>
+        <PasswordBox x:Name="pswPassword" HorizontalAlignment="Left" Height="20" Margin="33,128,0,0" VerticalAlignment="Top" Width="222" Background="#FFC4F1EA" BorderBrush="{x:Null}"/>
+        <Button x:Name="btnLogIn" Content="Log In" HorizontalAlignment="Left" Height="24" Margin="33,179,0,0" VerticalAlignment="Top" Width="77" Background="#FF9AE6FF" BorderBrush="#FF9DD3EF" Click="btnLogIn_Click"/>
+        <Button x:Name="btnRegister" Content="Register" HorizontalAlignment="Left" Height="24" Margin="33,215,0,0" VerticalAlignment="Top" Width="77" Background="#FF9AD8FF" BorderBrush="#FF9DCFEF"/>
+        <Button x:Name="btnBackArrow" Content="" HorizontalAlignment="Left" Height="40" Margin="20,3,0,0" VerticalAlignment="Top" Width="40" BorderBrush="{x:Null}" RenderTransformOrigin="0.475,0.368">
+            <Button.Background>
+                <ImageBrush ImageSource="/arrows.png"/>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>
