@@ -10,24 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace AAA_HAG_Aplication
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for LogInPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LogInPage : Window
     {
-        public MainWindow()
+        public LogInPage()
         {
             InitializeComponent();
-        }
-
-        private void btnProfile_Click()
-        {
-
         }
     }
 }
