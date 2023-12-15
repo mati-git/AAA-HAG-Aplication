@@ -10,11 +10,11 @@
         <Rectangle Height="784" VerticalAlignment="Center" Fill="#FF192B3E" Stroke="#FF0B0D33"/>
         <Rectangle Height="377" VerticalAlignment="Top" Fill="#FFD9E7F7" Margin="0,43,0,0"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Text="Full Name:"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Margin="20,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Background="#FFC4F1EA"/>
+        <TextBlock x:Name="txtbFullName" HorizontalAlignment="Left" Height="20" Margin="20,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222" Background="#FFC4F1EA"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,115,0,0" TextWrapping="Wrap" Text="Email:" VerticalAlignment="Top" Width="222"/>
-        <TextBlock HorizontalAlignment="Left" Height="20" Margin="20,135,0,0" TextWrapping="Wrap" Background="#FFC4F1EA" VerticalAlignment="Top" Width="222"/>
+        <TextBlock x:Name="txtbEmail" HorizontalAlignment="Left" Height="20" Margin="20,135,0,0" TextWrapping="Wrap" Background="#FFC4F1EA" VerticalAlignment="Top" Width="222"/>
         <TextBlock HorizontalAlignment="Left" Height="20" Margin="10,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="222"><Run Language="en-gb" Text="Conditions: "/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Height="121" Margin="20,204,0,0" TextWrapping="Wrap" Background="#FFC4F1EA" VerticalAlignment="Top" Width="222"/>
+        <TextBox x:Name="txtbConditions" HorizontalAlignment="Left" Height="121" Margin="20,204,0,0" TextWrapping="Wrap" Background="#FFC4F1EA" VerticalAlignment="Top" Width="222" BorderBrush="{x:Null}"/>
         <Button x:Name="btnLogInPage" Content="Log In" HorizontalAlignment="Left" Height="28" Margin="271,10,0,0" VerticalAlignment="Top" Width="65" Background="#FF9AE6FF" BorderBrush="#FF9DD3EF" Click="btnLogInPage_Click"/>
 
     </Grid>

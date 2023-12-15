@@ -38,10 +38,22 @@ namespace AAA_HAG_Aplication
             {
                 AccountEmail.address = rdr.GetString(0);
                 MessageBox.Show("Log In Successful.");
-                txtbEmail.Text = "";
+                txtbEmail.Text = "";               
                 pswPassword.Password = "";
+                Session.conn.Close();
+                return;
             }
+            Session.conn.Close();    
+            MessageBox.Show("Log In Unsuccessful");
+            txtbEmail.Text = "";
+            pswPassword.Password = "";
+        }
 
+        private void btnBackArrow_Click(object sender, RoutedEventArgs e)
+        {
+            ProfilePage profilepage = new ProfilePage();
+            profilepage.Show();
+            Close();
         }
     }
 }

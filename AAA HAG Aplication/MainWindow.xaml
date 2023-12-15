@@ -18,7 +18,7 @@
 
         <Rectangle Height="200" VerticalAlignment="Top" Fill="#FFD9E7F7" Margin="0,1,0,0" Grid.Row="1"/>
         <Rectangle Height="30" Fill="#FF52A3FF" VerticalAlignment="Top"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="145,77,0,0" VerticalAlignment="Top" Width="50" Source="C:\Users\s2201087\OneDrive - Notre Dame Catholic Sixth Form College\downloads\rainy.990x1024 (1).png" Grid.Row="1">
+        <Image x:Name="imgWeatherType" HorizontalAlignment="Left" Height="50" Margin="145,77,0,0" VerticalAlignment="Top" Width="50" Source="/rainy.990x1024 (1).png" Grid.Row="1">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/rainy.990x1024 (1).png"/>
             </Image.OpacityMask>
@@ -32,6 +32,8 @@
                 <ImageBrush ImageSource="/person-icon-png-transparent-13.jpg"/>
             </Button.Background>
         </Button>
+        <TextBlock x:Name="txtMainCurrentTemp" HorizontalAlignment="Left" Height="16" Margin="182,106,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="20" FontSize="10" FontWeight="Bold"/>
+        <TabControl x:Name="tbcForecastPanels" Background="#FF52A3FF" HorizontalAlignment="Center" Height="213" Margin="0,201,0,0" Grid.Row="1" VerticalAlignment="Top" Width="350" FontSize="18" FontFamily="Verdana"/>
 
     </Grid>
 </Window>

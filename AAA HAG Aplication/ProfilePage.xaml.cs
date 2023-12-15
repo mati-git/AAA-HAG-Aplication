@@ -27,11 +27,19 @@ namespace AAA_HAG_Aplication
         }
         private void DefineAccountInfo()
         {
-            string AccountInfoSQL = $"SELECT Firstname, Lastname, Email FROM Accounts WHERE Email = {AccountEmail.address}";
+            if (AccountEmail.address == null) { return; }
+            Session.conn.Open();
+            string AccountInfoSQL = $"SELECT Firstname, Lastname, Email, ConditionDescription FROM Accounts, conditions, customerconditions " +
+                $"WHERE Accounts.AccountID = Conditions.AccountID " +
+                $"AND conditions.conditionid = customerconditions.conditionID " +
+                $"AND Email = '{AccountEmail.address}'";
             MySqlCommand cmd = new MySqlCommand(AccountInfoSQL, Session.conn);
             MySqlDataReader rdr = cmd.ExecuteReader();
-            
-            txtb
+            rdr.Read();
+            txtbFullName.Text = rdr.GetString(0) + " " + rdr.GetString(1);
+            txtbEmail.Text = rdr.GetString(2);
+            txtbConditions.Text = rdr.GetString(3);
+
         }
         private void btnLogInPage_Click(object sender, RoutedEventArgs e)
         {
@@ -40,4 +48,4 @@ namespace AAA_HAG_Aplication
             Close();
         }
     }
-}
+                         }
