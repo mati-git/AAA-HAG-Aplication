@@ -58,6 +58,42 @@ namespace AAA_HAG_Aplication
                 };
                 tbcForecastPanels.Items.Add(newTabItem);
             }
+            string GetAdviceSQL = $"SELECT ConditionDescription, Advice " +
+                $"FROM accounts, customerconditions, conditions, advice, conditionadvice " +
+                $"WHERE accounts.email = '{AccountEmail.address}' " +
+                $"AND accounts.accountid = customerconditions.accountid " +
+                $"AND customerconditions.conditionid = conditions.conditionid " +
+                $"AND customerconditions.conditionid = conditionadvice.conditionid " +
+                $"AND conditionadvice.adviceid = advice.adviceid ";
+            MySqlCommand cmd = new MySqlCommand(GetAdviceSQL, Session.conn);
+            Session.conn.Open();
+            MySqlDataReader CheckAdvice = cmd.ExecuteReader();
+            
+            if (CheckAdvice.Read()) { GenerateAdvice(CheckAdvice); }
+            CheckAdvice.Close();
+            Session.conn.Close();
+
+        }
+        private void GenerateAdvice(MySqlDataReader CheckAdvice)
+        {
+            CheckAdvice.Close();
+            txtConditionAdvice.Text = "";
+            string GetAdviceSQL = $"SELECT ConditionDescription, Advice " +
+                $"FROM accounts, customerconditions, conditions, advice, conditionadvice " +
+                $"WHERE accounts.email = '{AccountEmail.address}' " +
+                $"AND accounts.accountid = customerconditions.accountid " +
+                $"AND customerconditions.conditionid = conditions.conditionid " +
+                $"AND customerconditions.conditionid = conditionadvice.conditionid " +
+                $"AND conditionadvice.adviceid = advice.adviceid ";
+            MySqlCommand cmd = new MySqlCommand(GetAdviceSQL, Session.conn);
+            MySqlDataReader GetAdvice = cmd.ExecuteReader();
+            while (GetAdvice.Read())
+            {
+                string ConditionName = GetAdvice.GetString(0);
+                string ConditionAdvice = GetAdvice.GetString(1);
+                txtConditionAdvice.Text += "Advice\n " + ConditionName + " - " + ConditionAdvice;
+            }
+            GetAdvice.Close();
         }
         private void btnProfile_Click(object sender, RoutedEventArgs e)
         {

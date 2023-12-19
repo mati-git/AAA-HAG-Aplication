@@ -55,5 +55,12 @@ namespace AAA_HAG_Aplication
             profilepage.Show();
             Close();
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            RegisterPage registerPage = new RegisterPage();
+            registerPage.Show();
+            Close();
+        }
     }
 }

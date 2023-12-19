@@ -30,7 +30,7 @@ namespace AAA_HAG_Aplication
             if (AccountEmail.address == null) { return; }
             Session.conn.Open();
             string AccountInfoSQL = $"SELECT Firstname, Lastname, Email, ConditionDescription FROM Accounts, conditions, customerconditions " +
-                $"WHERE Accounts.AccountID = Conditions.AccountID " +
+                $"WHERE Accounts.AccountID = customerconditions.AccountID " +
                 $"AND conditions.conditionid = customerconditions.conditionID " +
                 $"AND Email = '{AccountEmail.address}'";
             MySqlCommand cmd = new MySqlCommand(AccountInfoSQL, Session.conn);
@@ -45,6 +45,14 @@ namespace AAA_HAG_Aplication
         {
             LogInPage logInPage = new LogInPage();
             logInPage.Show();
+            Session.conn.Close();
+            Close();
+        }
+        private void btnBackArrow_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Session.conn.Close();
             Close();
         }
     }

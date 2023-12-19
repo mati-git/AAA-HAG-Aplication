@@ -34,6 +34,11 @@
         </Button>
         <TextBlock x:Name="txtMainCurrentTemp" HorizontalAlignment="Left" Height="16" Margin="182,106,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="20" FontSize="10" FontWeight="Bold"/>
         <TabControl x:Name="tbcForecastPanels" Background="#FF52A3FF" HorizontalAlignment="Center" Height="213" Margin="0,201,0,0" Grid.Row="1" VerticalAlignment="Top" Width="350" FontSize="18" FontFamily="Verdana"/>
+        <TextBlock x:Name="txtConditionAdvice" HorizontalAlignment="Center" Height="207" Margin="0,428,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="330" IsEnabled="False" Text="No Advice to Give" FontFamily="Verdana" Foreground="#FFA3E8E0"/>
+
+
+
+
 
     </Grid>
 </Window>
