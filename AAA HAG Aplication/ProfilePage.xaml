@@ -21,6 +21,10 @@
                 <ImageBrush ImageSource="/arrows.png"/>
             </Button.Background>
         </Button>
+        <ComboBox x:Name="cmbAddAfflicitons" HorizontalAlignment="Center" Height="25" Margin="0,464,0,0" VerticalAlignment="Top" Width="225" SelectionChanged="AddAffliciton_SelectionChange"/>
+        <ComboBox x:Name="cmbRemoveAfflicitons" HorizontalAlignment="Center" Height="25" Margin="0,527,0,0" VerticalAlignment="Top" Width="225" SelectionChanged="RemoveAffliciton_SelectionChange"/>
+        <TextBlock HorizontalAlignment="Left" Height="15" Margin="62,449,0,0" TextWrapping="Wrap" Text="Select afflictions to recieve advice on:" VerticalAlignment="Top" Width="272" Foreground="White" FontFamily="Verdana" FontSize="9"/>
+        <TextBlock HorizontalAlignment="Left" Height="15" Margin="62,512,0,0" TextWrapping="Wrap" Text="Remove afflictions:" VerticalAlignment="Top" Width="111" Foreground="White" FontFamily="Verdana" FontSize="9"/>
 
     </Grid>
 </Window>

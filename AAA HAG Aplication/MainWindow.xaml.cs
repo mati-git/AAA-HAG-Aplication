@@ -43,12 +43,12 @@ namespace AAA_HAG_Aplication
             for (int i = 0; i < 12; i++)
             {
                 string Time = jsonObject["forecast"]["forecastday"][0]["hour"][i]["time"].ToString().Substring(10);
-                string temp = jsonObject["forecast"]["forecastday"][0]["hour"][i]["temp_c"].ToString();
-                string humidty = jsonObject["forecast"]["forecastday"][0]["hour"][i]["humidity"].ToString();
-                TempForecasts.Add(Time, temp);
-                HumidtyForecast.Add(Time, humidty);
+                string Temp = jsonObject["forecast"]["forecastday"][0]["hour"][i]["temp_c"].ToString();
+                string Humidity = jsonObject["forecast"]["forecastday"][0]["hour"][i]["humidity"].ToString();
+                TempForecasts.Add(Time, Temp);
+                HumidtyForecast.Add(Time, Humidity);
             }
-            txtMainCurrentTemp.Text = Ctemp+"c";
+            txtMainCurrentTemp.Text = Ctemp + "c";
             foreach (string Times in TempForecasts.Keys) //Iterating through the keys to make a tab for each stored time
             {
                 TabItem newTabItem = new TabItem //This is the actual tab being added to the tab control
@@ -61,39 +61,23 @@ namespace AAA_HAG_Aplication
             string GetAdviceSQL = $"SELECT ConditionDescription, Advice " +
                 $"FROM accounts, customerconditions, conditions, advice, conditionadvice " +
                 $"WHERE accounts.email = '{AccountEmail.address}' " +
-                $"AND accounts.accountid = customerconditions.accountid " +
+                $"AND accounts.accountid = customerconditions.accountid " +  //This statement pulls the condition and the advice from the system
                 $"AND customerconditions.conditionid = conditions.conditionid " +
                 $"AND customerconditions.conditionid = conditionadvice.conditionid " +
                 $"AND conditionadvice.adviceid = advice.adviceid ";
             MySqlCommand cmd = new MySqlCommand(GetAdviceSQL, Session.conn);
             Session.conn.Open();
-            MySqlDataReader CheckAdvice = cmd.ExecuteReader();
-            
-            if (CheckAdvice.Read()) { GenerateAdvice(CheckAdvice); }
+            MySqlDataReader CheckAdvice = cmd.ExecuteReader(); 
+            if (CheckAdvice.Read()) { txtConditionAdvice.Text = ""; CheckAdvice.Close(); }
+            while (CheckAdvice.Read())
+            {
+                string ConditionName = CheckAdvice.GetString(0);
+                string ConditionAdvice = CheckAdvice.GetString(1); // The advice is added in list format. 
+                txtConditionAdvice.Text += "Advice\n " + ConditionName + " - " + ConditionAdvice;
+            }
             CheckAdvice.Close();
             Session.conn.Close();
 
-        }
-        private void GenerateAdvice(MySqlDataReader CheckAdvice)
-        {
-            CheckAdvice.Close();
-            txtConditionAdvice.Text = "";
-            string GetAdviceSQL = $"SELECT ConditionDescription, Advice " +
-                $"FROM accounts, customerconditions, conditions, advice, conditionadvice " +
-                $"WHERE accounts.email = '{AccountEmail.address}' " +
-                $"AND accounts.accountid = customerconditions.accountid " +
-                $"AND customerconditions.conditionid = conditions.conditionid " +
-                $"AND customerconditions.conditionid = conditionadvice.conditionid " +
-                $"AND conditionadvice.adviceid = advice.adviceid ";
-            MySqlCommand cmd = new MySqlCommand(GetAdviceSQL, Session.conn);
-            MySqlDataReader GetAdvice = cmd.ExecuteReader();
-            while (GetAdvice.Read())
-            {
-                string ConditionName = GetAdvice.GetString(0);
-                string ConditionAdvice = GetAdvice.GetString(1);
-                txtConditionAdvice.Text += "Advice\n " + ConditionName + " - " + ConditionAdvice;
-            }
-            GetAdvice.Close();
         }
         private void btnProfile_Click(object sender, RoutedEventArgs e)
         {
